@@ -60,6 +60,7 @@ public class NotesList extends ListActivity {
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
             //扩展 显示时间戳
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR,
     };
 
     /** The index of the title column */
@@ -123,8 +124,8 @@ public class NotesList extends ListActivity {
         int[] viewIDs = { android.R.id.text1, R.id.text1_time };
        /* int[] viewIDs = { android.R.id.text1};*/
         // Creates the backing adapter for the ListView.
-        SimpleCursorAdapter adapter
-            = new SimpleCursorAdapter(
+        MyCursorAdapter adapter
+            = new MyCursorAdapter(
                       this,                             // The Context for the ListView
                       R.layout.noteslist_item,          // Points to the XML for a list item
                       cursor,                           // The cursor to get items from

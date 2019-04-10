@@ -117,6 +117,9 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE);
 
+        sNotesProjectionMap.put(
+                NotePad.Notes.COLUMN_NAME_BACK_COLOR,
+                NotePad.Notes.COLUMN_NAME_BACK_COLOR);
         /*创建用于处理活动文件夹的初始化投影映射 */
 
         // 创建新的投影地图实例
@@ -147,7 +150,8 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                    + NotePad.Notes.COLUMN_NAME_TITLE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_NOTE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_CREATE_DATE + " INTEGER,"
-                   + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER"
+                   + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER,"
+                   + NotePad.Notes.COLUMN_NAME_BACK_COLOR + " INTEGER" //颜色
                    + ");");
        }
 
@@ -489,6 +493,10 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
             values.put(NotePad.Notes.COLUMN_NAME_NOTE, "");
         }
 
+        // 新建笔记，背景默认为白色
+        if (values.containsKey(NotePad.Notes.COLUMN_NAME_BACK_COLOR) == false) {
+            values.put(NotePad.Notes.COLUMN_NAME_BACK_COLOR, NotePad.Notes.DEFAULT_COLOR);
+        }
         // Opens the database object in "write" mode.
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 
