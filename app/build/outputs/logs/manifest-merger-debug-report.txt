@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:22:1-135:12
+ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:22:1-139:12
 	package
 		ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:23:5-42
 		INJECTED from F:\Android\NotePad\app\src\main\AndroidManifest.xml
@@ -17,7 +17,7 @@ ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:25:5-44
 		INJECTED from F:\Android\NotePad\app\src\main\AndroidManifest.xml
 		INJECTED from F:\Android\NotePad\app\src\main\AndroidManifest.xml
 application
-ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:27:5-133:19
+ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:27:5-137:19
 	android:label
 		ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:28:9-41
 	android:icon
@@ -170,3 +170,13 @@ action#android.intent.action.SEARCH_LONG_PRESS
 ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:126:17-82
 	android:name
 		ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:126:25-79
+activity#com.example.android.notepad.NoteColor
+ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:133:9-136:57
+	android:label
+		ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:135:13-40
+	android:windowSoftInputMode
+		ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:136:13-55
+	android:theme
+		ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:134:13-67
+	android:name
+		ADDED from F:\Android\NotePad\app\src\main\AndroidManifest.xml:133:19-43

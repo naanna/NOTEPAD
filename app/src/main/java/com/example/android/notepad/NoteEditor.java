@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
@@ -61,7 +62,9 @@ public class NoteEditor extends Activity {
         new String[] {
             NotePad.Notes._ID,
             NotePad.Notes.COLUMN_NAME_TITLE,
-            NotePad.Notes.COLUMN_NAME_NOTE
+            NotePad.Notes.COLUMN_NAME_NOTE,
+                //增加更换背景颜色
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR
     };
 
     // A label for the saved state of the activity
@@ -249,7 +252,33 @@ public class NoteEditor extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        //读取颜色数据
+        if(mCursor!=null){
+            mCursor.moveToFirst();
+            int x = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACK_COLOR);
+            int y = mCursor.getInt(x);
+            Log.i("NoteEditor", "color"+y);
+            switch (y){
+                case NotePad.Notes.DEFAULT_COLOR:
+                    mText.setBackgroundColor(Color.rgb(255, 255, 255));
+                    break;
+                case NotePad.Notes.YELLOW_COLOR:
+                    mText.setBackgroundColor(Color.rgb(247, 216, 133));
+                    break;
+                case NotePad.Notes.BLUE_COLOR:
+                    mText.setBackgroundColor(Color.rgb(165, 202, 237));
+                    break;
+                case NotePad.Notes.GREEN_COLOR:
+                    mText.setBackgroundColor(Color.rgb(161, 214, 174));
+                    break;
+                case NotePad.Notes.RED_COLOR:
+                    mText.setBackgroundColor(Color.rgb(244, 149, 133));
+                    break;
+                default:
+                    mText.setBackgroundColor(Color.rgb(255, 255, 255));
+                    break;
+            }
+        }
         /*
          * mCursor is initialized, since onCreate() always precedes onResume for any running
          * process. This tests that it's not null, since it should always contain data.
@@ -446,10 +475,18 @@ public class NoteEditor extends Activity {
         case R.id.menu_revert:
             cancelNote();
             break;
+        case R.id.menu_color:
+                changeColor();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
-
+    //跳转改变颜色的activity，将uri信息传到新的activity
+    private final void changeColor() {
+        Intent intent = new Intent(null,mUri);
+        intent.setClass(NoteEditor.this,NoteColor.class);
+        NoteEditor.this.startActivity(intent);
+    }
 //BEGIN_INCLUDE(paste)
     /**
      * A helper method that replaces the note's data with the contents of the clipboard.

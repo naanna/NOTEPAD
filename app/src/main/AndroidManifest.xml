@@ -130,6 +130,10 @@
                 <!--2.vnd.android.cursor.item 代表返回结果为单列数据-->
             </intent-filter>
         </activity>
+        <activity android:name="NoteColor"
+            android:theme="@android:style/Theme.Holo.Light.Dialog"
+            android:label="ChangeColor"
+            android:windowSoftInputMode="stateVisible"/>
     </application>
 
 </manifest>

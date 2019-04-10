@@ -1,5 +1,9 @@
 [
     {
+        "merged": "F:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\note_color.xml",
+        "source": "F:\\Android\\NotePad\\app\\src\\main\\res\\layout\\note_color.xml"
+    },
+    {
         "merged": "F:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\note_search_list.xml",
         "source": "F:\\Android\\NotePad\\app\\src\\main\\res\\layout\\note_search_list.xml"
     },
