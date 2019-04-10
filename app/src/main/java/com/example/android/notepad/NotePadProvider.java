@@ -117,6 +117,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE);
 
+        // add Maps "modified" to "color"
         sNotesProjectionMap.put(
                 NotePad.Notes.COLUMN_NAME_BACK_COLOR,
                 NotePad.Notes.COLUMN_NAME_BACK_COLOR);
@@ -151,7 +152,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                    + NotePad.Notes.COLUMN_NAME_NOTE + " TEXT,"
                    + NotePad.Notes.COLUMN_NAME_CREATE_DATE + " INTEGER,"
                    + NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE + " INTEGER,"
-                   + NotePad.Notes.COLUMN_NAME_BACK_COLOR + " INTEGER" //颜色
+                   + NotePad.Notes.COLUMN_NAME_BACK_COLOR + " INTEGER" //数据库增加color属性
                    + ");");
        }
 
@@ -493,7 +494,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
             values.put(NotePad.Notes.COLUMN_NAME_NOTE, "");
         }
 
-        // 新建笔记，背景默认为白色
+        // 笔记背景默认为白色
         if (values.containsKey(NotePad.Notes.COLUMN_NAME_BACK_COLOR) == false) {
             values.put(NotePad.Notes.COLUMN_NAME_BACK_COLOR, NotePad.Notes.DEFAULT_COLOR);
         }

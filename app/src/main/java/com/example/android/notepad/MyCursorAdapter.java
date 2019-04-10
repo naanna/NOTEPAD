@@ -14,7 +14,7 @@ public class MyCursorAdapter extends SimpleCursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor){
         super.bindView(view, context, cursor);
-        //从数据库中读取的cursor中获取笔记列表对应的颜色数据，并设置笔记颜色
+        //从数据库中读取的先前存入的便签背景颜色的编码，再设置便签的背景颜色
         int x = cursor.getInt(cursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACK_COLOR));
         /**
          * 白 255 255 255

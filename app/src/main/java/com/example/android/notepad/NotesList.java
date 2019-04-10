@@ -60,6 +60,7 @@ public class NotesList extends ListActivity {
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
             //扩展 显示时间戳
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
+            //扩展 显示便签背景颜色
             NotePad.Notes.COLUMN_NAME_BACK_COLOR,
     };
 
