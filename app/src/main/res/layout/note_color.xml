@@ -14,27 +14,27 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:background="#f7f4ec15"
+        android:background="#fdef90"
         android:onClick="yellow"/>
     <ImageButton
         android:id="@+id/color_blue"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:background="#26abf2"
+        android:background="#6dc1ed"
         android:onClick="blue"/>
     <ImageButton
         android:id="@+id/color_green"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:background="#72fd85"
+        android:background="#94e49f"
         android:onClick="green"/>
     <ImageButton
         android:id="@+id/color_red"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="1"
-        android:background="#fa3535"
+        android:background="#f19696"
         android:onClick="red"/>
 </LinearLayout>

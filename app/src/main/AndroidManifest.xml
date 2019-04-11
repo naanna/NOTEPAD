@@ -118,6 +118,7 @@
         <activity
             android:name=".NoteSearch"
             android:label="NoteSearch"
+            android:theme="@android:style/Theme.Holo.Light"
             >
 
             <intent-filter>
@@ -132,7 +133,7 @@
         </activity>
         <activity android:name="NoteColor"
             android:theme="@android:style/Theme.Holo.Light.Dialog"
-            android:label="ChangeColor"
+            android:label="Select Color"
             android:windowSoftInputMode="stateVisible"/>
     </application>
 

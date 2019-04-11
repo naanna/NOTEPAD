@@ -33,12 +33,6 @@ public class NoteColor extends Activity {
     @Override
     protected void onResume(){
         //执行顺序在onCreate之后
-/*        if (mCursor != null) {
-            mCursor.moveToFirst();
-            mCursor.moveToFirst();
-            color = mCursor.getInt(COLUMN_INDEX_TITLE);
-            Log.i("NoteEditor", "change"+color);
-        }*/
         if(mCursor.moveToFirst()){
             color = mCursor.getInt(COLUMN_INDEX_TITLE)+1;
             Log.i("NoteEditor", "change"+color);
@@ -54,7 +48,6 @@ public class NoteColor extends Activity {
         values.put(NotePad.Notes.COLUMN_NAME_BACK_COLOR, color);
         mCursor.moveToFirst();
         getContentResolver().update(mUri, values, null, null);
-
         int x = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACK_COLOR);
         int y = mCursor.getInt(x);
         Log.i("NoteEditor", "du"+y);

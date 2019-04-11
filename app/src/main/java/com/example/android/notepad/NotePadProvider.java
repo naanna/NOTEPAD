@@ -117,7 +117,7 @@ public class NotePadProvider extends ContentProvider implements PipeDataWriter<C
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
                 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE);
 
-        // add Maps "modified" to "color"
+        // add Maps "color" to "color"
         sNotesProjectionMap.put(
                 NotePad.Notes.COLUMN_NAME_BACK_COLOR,
                 NotePad.Notes.COLUMN_NAME_BACK_COLOR);
