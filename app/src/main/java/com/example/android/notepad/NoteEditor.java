@@ -38,6 +38,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
@@ -462,6 +464,8 @@ public class NoteEditor extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle all of the possible menu actions.
+        TextView txt;
+        txt = (TextView)findViewById(R.id.note);
         switch (item.getItemId()) {
         case R.id.menu_save:
             String text = mText.getText().toString();
@@ -477,6 +481,15 @@ public class NoteEditor extends Activity {
             break;
         case R.id.menu_color:
                 changeColor();
+                break;
+        case R.id.font_20:
+            txt.setTextSize(20);
+                break;
+        case R.id.font_30:
+                txt.setTextSize(30);
+                break;
+        case R.id.font_40:
+                txt.setTextSize(40);
                 break;
         }
         return super.onOptionsItemSelected(item);

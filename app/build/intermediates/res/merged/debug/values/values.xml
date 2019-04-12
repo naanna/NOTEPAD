@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="color1">#be96df</color>
     <string name="app_name">NotePad</string>
     <string name="button_ok">OK</string>
     <string name="error_message">Error loading note</string>
