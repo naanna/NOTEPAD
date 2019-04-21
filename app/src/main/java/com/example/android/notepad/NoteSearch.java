@@ -14,9 +14,9 @@ import android.widget.SimpleCursorAdapter;
 
 public class NoteSearch extends ListActivity implements SearchView.OnQueryTextListener  {
     private static final String[] PROJECTION = new String[]{
-            NotePad.Notes._ID, // 0
-            NotePad.Notes.COLUMN_NAME_TITLE, // 1
-            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,//在这里加入了修改时间的显示
+            NotePad.Notes._ID,
+            NotePad.Notes.COLUMN_NAME_TITLE,
+            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,//显示修改时间
             NotePad.Notes.COLUMN_NAME_BACK_COLOR,
     };
 
@@ -43,40 +43,33 @@ public class NoteSearch extends ListActivity implements SearchView.OnQueryTextLi
         String selection = NotePad.Notes.COLUMN_NAME_TITLE + " Like ? ";
         String[] selectionArgs = { "%"+newText+"%" };
         Cursor cursor = managedQuery(
-                getIntent().getData(),            // Use the default content URI for the provider.
-                PROJECTION,                       // Return the note ID and title for each note. and modifcation date
-                selection,                        // 条件左边
-                selectionArgs,                    // 条件右边
-                NotePad.Notes.DEFAULT_SORT_ORDER  // Use the default sort order.
+                getIntent().getData(),
+                PROJECTION,
+                selection,
+                selectionArgs,
+                NotePad.Notes.DEFAULT_SORT_ORDER
         );
         String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,  NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE };
         int[] viewIDs = { android.R.id.text1 , R.id.text1_time };
         SimpleCursorAdapter adapter;
         adapter= new MyCursorAdapter(
-                this,                   //context:上下文
-                R.layout.noteslist_item,         //layout:布局文件，至少有int[]的所有视图
-                cursor,                          //cursor：游标
-                dataColumns,                     //from：绑定到视图的数据
-                viewIDs                          //to:用来展示from数组中数据的视图
-                //flags：用来确定适配器行为的标志，Android3.0之后淘汰
+                this,
+                R.layout.noteslist_item,
+                cursor,
+                dataColumns,
+                viewIDs
         );
         setListAdapter(adapter);
         return true;
     }
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        // Constructs a new URI from the incoming URI and the row ID
         Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
-        // Gets the action from the incoming Intent
         String action = getIntent().getAction();
-        // Handles requests for note data
+
         if (Intent.ACTION_PICK.equals(action) || Intent.ACTION_GET_CONTENT.equals(action)) {
-            // Sets the result to return to the component that called this Activity. The
-            // result contains the new URI
             setResult(RESULT_OK, new Intent().setData(uri));
         } else {
-            // Sends out an Intent to start an Activity that can handle ACTION_EDIT. The
-            // Intent's data is the note ID URI. The effect is to call NoteEdit.
             startActivity(new Intent(Intent.ACTION_EDIT, uri));
         }
     }

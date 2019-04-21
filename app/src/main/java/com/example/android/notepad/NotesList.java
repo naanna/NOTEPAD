@@ -261,6 +261,10 @@ public class NotesList extends ListActivity {
      * @return True, if the INSERT menu item was selected; otherwise, the result of calling
      * the parent method.
      */
+    private MyCursorAdapter adapter;
+    private Cursor cursor;
+    private String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,  NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE } ;
+    private int[] viewIDs = { android.R.id.text1 , R.id.text1_time };
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -287,6 +291,60 @@ public class NotesList extends ListActivity {
                 return true;*/
             case R.id.menu_search:
                 startActivity(new Intent(Intent.ACTION_SEARCH,getIntent().getData()));
+                return true;
+            //创建时间排序
+            case R.id.menu_sort1:
+                cursor = managedQuery(
+                        getIntent().getData(),
+                        PROJECTION,
+                        null,
+                        null,
+                        NotePad.Notes._ID
+                );
+                adapter = new MyCursorAdapter(
+                        this,
+                        R.layout.noteslist_item,
+                        cursor,
+                        dataColumns,
+                        viewIDs
+                );
+                setListAdapter(adapter);
+                return true;
+            //修改时间排序
+            case R.id.menu_sort2:
+                cursor = managedQuery(
+                        getIntent().getData(),
+                        PROJECTION,
+                        null,
+                        null,
+                        NotePad.Notes.DEFAULT_SORT_ORDER
+                );
+                adapter = new MyCursorAdapter(
+                        this,
+                        R.layout.noteslist_item,
+                        cursor,
+                        dataColumns,
+                        viewIDs
+                );
+                setListAdapter(adapter);
+                return true;
+            //颜色排序
+            case R.id.menu_sort3:
+                cursor = managedQuery(
+                        getIntent().getData(),
+                        PROJECTION,
+                        null,
+                        null,
+                        NotePad.Notes.COLUMN_NAME_BACK_COLOR
+                );
+                adapter = new MyCursorAdapter(
+                        this,
+                        R.layout.noteslist_item,
+                        cursor,
+                        dataColumns,
+                        viewIDs
+                );
+                setListAdapter(adapter);
                 return true;
         default:
             return super.onOptionsItemSelected(item);

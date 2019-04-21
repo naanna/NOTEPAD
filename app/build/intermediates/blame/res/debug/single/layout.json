@@ -12,6 +12,10 @@
         "source": "F:\\Android\\NotePad\\app\\src\\main\\res\\layout\\noteslist_item.xml"
     },
     {
+        "merged": "F:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\output.xml",
+        "source": "F:\\Android\\NotePad\\app\\src\\main\\res\\layout\\output.xml"
+    },
+    {
         "merged": "F:\\Android\\NotePad\\app\\build\\intermediates\\res\\merged\\debug\\layout\\title_editor.xml",
         "source": "F:\\Android\\NotePad\\app\\src\\main\\res\\layout\\title_editor.xml"
     },

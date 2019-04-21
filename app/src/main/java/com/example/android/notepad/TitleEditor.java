@@ -65,7 +65,6 @@ public class TitleEditor extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Set the View for this Activity object's UI.
         setContentView(R.layout.title_editor);
 

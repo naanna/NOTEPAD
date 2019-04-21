@@ -19,4 +19,19 @@
           android:icon="@drawable/ic_menu_compose"
           android:title="@string/menu_paste"
           android:alphabeticShortcut='p' />
+
+    <item android:title="sort">
+        <menu>
+            <item
+                android:id="@+id/menu_sort1"
+                android:title="create time"/>
+            <item
+                android:id="@+id/menu_sort2"
+                android:title="update time"/>
+            <item
+                android:id="@+id/menu_sort3"
+                android:title="color"/>
+        </menu>
+    </item>
+
 </menu>

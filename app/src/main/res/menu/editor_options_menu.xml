@@ -16,7 +16,8 @@
         android:title="color"
         android:icon="@drawable/ic_menu_edit"
         android:showAsAction="always"/>
-    <item android:title="font size">
+    <item android:title="font size"
+        >
         <menu>
             <group>
             <item android:title="big"
@@ -28,5 +29,6 @@
             </group>
         </menu>
     </item>
-
+    <item android:id="@+id/menu_output"
+        android:title="output" />
 </menu>

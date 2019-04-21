@@ -11,14 +11,7 @@
                     "endOffset": 91
                 },
                 "from": {
-                    "file": "F:\\Android\\NotePad\\app\\src\\main\\res\\values\\colors.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 57,
-                        "endColumn": 40,
-                        "endOffset": 93
-                    }
+                    "file": "F:\\Android\\NotePad\\app\\src\\main\\res\\values\\colors.xml"
                 }
             },
             {

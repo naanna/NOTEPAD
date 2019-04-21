@@ -20,22 +20,21 @@ public class NoteColor extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_color);
-        //从NoteEditor传入的uri
         mUri = getIntent().getData();
         mCursor = managedQuery(
-                mUri,        // The URI for the note that is to be retrieved.
-                PROJECTION,  // The columns to retrieve
-                null,        // No selection criteria are used, so no where columns are needed.
-                null,        // No where columns are used, so no where values are needed.
-                null         // No sort order is needed.
+                mUri,
+                PROJECTION,
+                null,
+                null,
+                null
         );
     }
     @Override
+    //onCreate后
     protected void onResume(){
-        //执行顺序在onCreate之后
         if(mCursor.moveToFirst()){
-            color = mCursor.getInt(COLUMN_INDEX_TITLE)+1;
-            Log.i("NoteEditor", "change"+color);
+            color = mCursor.getInt(mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACK_COLOR));
+            Log.i("NoteColor", "before"+color);
         }
         super.onResume();
     }
@@ -44,13 +43,14 @@ public class NoteColor extends Activity {
         //执行顺序在finish()之后，将选择的颜色存入数据库
         super.onPause();
         ContentValues values = new ContentValues();
-        Log.i("NoteEditor", "cun"+color);
+        Log.i("NoteColor", "cun"+color);
+       // mCursor.moveToFirst();
         values.put(NotePad.Notes.COLUMN_NAME_BACK_COLOR, color);
-        mCursor.moveToFirst();
         getContentResolver().update(mUri, values, null, null);
+
         int x = mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACK_COLOR);
         int y = mCursor.getInt(x);
-        Log.i("NoteEditor", "du"+y);
+        Log.i("NoteColor", "du"+y);
     }
     public void white(View view){
         color = NotePad.Notes.DEFAULT_COLOR;
@@ -72,5 +72,4 @@ public class NoteColor extends Activity {
         color = NotePad.Notes.RED_COLOR;
         finish();
     }
-
 }

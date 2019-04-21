@@ -29,32 +29,40 @@ public final class R {
         public static final int color_red=0x7f070004;
         public static final int color_white=0x7f070000;
         public static final int color_yellow=0x7f070001;
-        public static final int context_copy=0x7f070013;
-        public static final int context_delete=0x7f070014;
-        public static final int context_open=0x7f070012;
-        public static final int font_20=0x7f070011;
-        public static final int font_30=0x7f070010;
-        public static final int font_40=0x7f07000f;
+        public static final int context_copy=0x7f070017;
+        public static final int context_delete=0x7f070018;
+        public static final int context_open=0x7f070016;
+        public static final int font_20=0x7f070014;
+        public static final int font_30=0x7f070013;
+        public static final int font_40=0x7f070012;
         public static final int layout=0x7f070007;
-        public static final int menu_add=0x7f070015;
-        public static final int menu_color=0x7f07000e;
-        public static final int menu_delete=0x7f07000d;
-        public static final int menu_paste=0x7f070017;
-        public static final int menu_revert=0x7f07000c;
-        public static final int menu_save=0x7f07000b;
-        public static final int menu_search=0x7f070016;
+        public static final int menu_add=0x7f070019;
+        public static final int menu_color=0x7f070011;
+        public static final int menu_delete=0x7f070010;
+        public static final int menu_output=0x7f070015;
+        public static final int menu_paste=0x7f07001b;
+        public static final int menu_revert=0x7f07000f;
+        public static final int menu_save=0x7f07000e;
+        public static final int menu_search=0x7f07001a;
+        public static final int menu_sort1=0x7f07001c;
+        public static final int menu_sort2=0x7f07001d;
+        public static final int menu_sort3=0x7f07001e;
+        public static final int name=0x7f070009;
+        public static final int no=0x7f07000b;
         public static final int note=0x7f070005;
-        public static final int ok=0x7f07000a;
+        public static final int ok=0x7f07000d;
+        public static final int output_ok=0x7f07000a;
         public static final int search_view=0x7f070006;
         public static final int text1_time=0x7f070008;
-        public static final int title=0x7f070009;
+        public static final int title=0x7f07000c;
     }
     public static final class layout {
         public static final int note_color=0x7f030000;
         public static final int note_editor=0x7f030001;
         public static final int note_search_list=0x7f030002;
         public static final int noteslist_item=0x7f030003;
-        public static final int title_editor=0x7f030004;
+        public static final int output=0x7f030004;
+        public static final int title_editor=0x7f030005;
     }
     public static final class menu {
         public static final int editor_options_menu=0x7f060000;

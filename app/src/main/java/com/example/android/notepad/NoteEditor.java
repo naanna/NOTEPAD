@@ -335,6 +335,7 @@ public class NoteEditor extends Activity {
             setTitle(getText(R.string.error_title));
             mText.setText(getText(R.string.error_message));
         }
+
     }
 
     /**
@@ -479,27 +480,30 @@ public class NoteEditor extends Activity {
         case R.id.menu_revert:
             cancelNote();
             break;
-        case R.id.menu_color:
-                changeColor();
-                break;
+        case R.id.menu_color://跳转改变颜色的activity
+            Intent intent = new Intent(null,mUri);
+            intent.setClass(NoteEditor.this,NoteColor.class);
+            NoteEditor.this.startActivity(intent);
+            break;
         case R.id.font_20:
             txt.setTextSize(20);
-                break;
+            break;
         case R.id.font_30:
-                txt.setTextSize(30);
-                break;
+            txt.setTextSize(30);
+            break;
         case R.id.font_40:
-                txt.setTextSize(40);
-                break;
+            txt.setTextSize(40);
+            break;
+         case R.id.menu_output://跳转导出笔记的activity
+             Intent intent1 = new Intent(null,mUri);
+             intent1.setClass(NoteEditor.this,Output.class);
+             NoteEditor.this.startActivity(intent1);
+             break;
         }
         return super.onOptionsItemSelected(item);
     }
-    //跳转改变颜色的activity，将uri信息传到新的activity
-    private final void changeColor() {
-        Intent intent = new Intent(null,mUri);
-        intent.setClass(NoteEditor.this,NoteColor.class);
-        NoteEditor.this.startActivity(intent);
-    }
+
+
 //BEGIN_INCLUDE(paste)
     /**
      * A helper method that replaces the note's data with the contents of the clipboard.
